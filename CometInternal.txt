@@ -37,7 +37,7 @@ local UICorner_10 = Instance.new("UICorner")
 --Properties:
 
 local isinjected = false
-local ispatched = false
+local ispatched = true
 local cometversion = "v5.0.0.2U Ruyi Multi-Ver"
 
 CometIsInjected.Text = "[Comet 3]: Comet 3 no injected"
@@ -46,7 +46,7 @@ PatchedVersion.Text = cometversion .. " [Patched]"
 
 if ispatched then
 	BaseComet.Visible = true
-	CometIsInjected.Text = "[Comet 3]: Is patched you no cannot inject"
+	CometIsInjected.Text = "[Comet 3]: Is descontinued"
 end
 
 play_arrow.MouseButton1Click:Connect(function()
