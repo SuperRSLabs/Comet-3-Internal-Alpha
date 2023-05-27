@@ -1,0 +1,416 @@
+local CometExecutorInternal = Instance.new("Folder")
+local CometInternal = Instance.new("ScreenGui")
+local BaseComet = Instance.new("Frame")
+local ImageLabel = Instance.new("ImageLabel")
+local TextLabel = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
+local EditFrame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Button = Instance.new("TextButton")
+local Shadow = Instance.new("Frame")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextBox = Instance.new("TextBox")
+local UICorner_2 = Instance.new("UICorner")
+local play_arrow = Instance.new("ImageButton")
+local UICorner_3 = Instance.new("UICorner")
+local remove = Instance.new("ImageButton")
+local close = Instance.new("ImageButton")
+local power = Instance.new("ImageButton")
+local UICorner_4 = Instance.new("UICorner")
+local TextLabel_3 = Instance.new("TextLabel")
+local UICorner_5 = Instance.new("UICorner")
+local UIGradient = Instance.new("UIGradient")
+local CometVersionLabel = Instance.new("TextLabel")
+local UICorner_6 = Instance.new("UICorner")
+local CometIsInjected = Instance.new("TextLabel")
+local UICorner_7 = Instance.new("UICorner")
+local CometPatchedFrame = Instance.new("Frame")
+local UICorner_8 = Instance.new("UICorner")
+local ImageLabel_2 = Instance.new("ImageLabel")
+local TextLabel_4 = Instance.new("TextLabel")
+local PatchedVersion = Instance.new("TextLabel")
+local UICorner_9 = Instance.new("UICorner")
+local trending_flat = Instance.new("ImageButton")
+local CometMinimized = Instance.new("ImageButton")
+local UICorner_10 = Instance.new("UICorner")
+
+--Properties:
+
+local isinjected = false
+local ispatched = false
+local cometversion = "v5.0.0.2U Ruyi Multi-Ver"
+
+CometIsInjected.Text = "[Comet 3]: Comet 3 no injected"
+CometVersionLabel.Text = cometversion
+PatchedVersion.Text = cometversion .. " [Patched]"
+
+if ispatched then
+	BaseComet.Visible = true
+	CometIsInjected.Text = "[Comet 3]: Is patched you no cannot inject"
+end
+
+play_arrow.MouseButton1Click:Connect(function()
+	if not isinjected and not ispatched then
+		CometIsInjected.Text = "[Comet 3]: Comet 3 no injected, inject pls"
+		wait(2)
+		CometIsInjected.Text = "[Comet 3]: Comet 3 no injected"
+	elseif isinjected and not ispatched then
+		loadstring(TextBox.Text)()
+	end
+end)
+
+power.MouseButton1Click:Connect(function()
+	if isinjected then
+		CometIsInjected.Text = "[Comet 3]: Already injected"
+		wait(2)
+		CometIsInjected.Text = "[Comet 3]: Injected"
+	elseif not ispatched then
+		CometIsInjected.Text = "[Comet 3]: Checking..."
+		wait(3)
+		CometIsInjected.Text = "[Comet 3]: Injecting..."
+		wait(2)
+		CometIsInjected.Text = "[Comet 3]: Checking Whitelist..."
+		wait(1)
+		CometIsInjected.Text = "[Comet 3]: Wait..."
+		wait(1)
+		CometIsInjected.Text = "[Comet 3]: Injected"
+		BaseComet.BorderColor3 = Color3.fromRGB(108, 105, 206)
+		isinjected = true
+	end
+end)
+
+CometExecutorInternal.Name = "CometExecutorInternal"
+CometExecutorInternal.Parent = game.CoreGui
+
+CometInternal.Name = "CometInternal"
+CometInternal.Parent = CometExecutorInternal
+CometInternal.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+CometInternal.ResetOnSpawn = false
+
+BaseComet.Name = "BaseComet"
+BaseComet.Parent = CometInternal
+BaseComet.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+BaseComet.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BaseComet.Position = UDim2.new(0.192830652, 0, 0.200811356, 0)
+BaseComet.Size = UDim2.new(0, 595, 0, 294)
+BaseComet.Active = true
+BaseComet.Draggable = true
+
+ImageLabel.Parent = BaseComet
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.Size = UDim2.new(0, 39, 0, 36)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=13557846664"
+
+TextLabel.Parent = BaseComet
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.0826612934, 0, 0.0204081647, 0)
+TextLabel.Size = UDim2.new(0, 66, 0, 24)
+TextLabel.Font = Enum.Font.Arial
+TextLabel.Text = "Executor"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+TextButton.Parent = BaseComet
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.BackgroundTransparency = 1.000
+TextButton.Position = UDim2.new(0.205299541, 0, 0.0204081647, 0)
+TextButton.Size = UDim2.new(0, 42, 0, 24)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "Edit"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+
+EditFrame.Name = "EditFrame"
+EditFrame.Parent = BaseComet
+EditFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+EditFrame.Position = UDim2.new(0.165322587, 0, 0.10204082, 0)
+EditFrame.Size = UDim2.new(0, 109, 0, 39)
+EditFrame.Visible = false
+
+UICorner.Parent = EditFrame
+
+Button.Name = "Button"
+Button.Parent = EditFrame
+Button.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+Button.BorderSizePixel = 0
+Button.Position = UDim2.new(0.0458715558, 0, 0.0527782775, 0)
+Button.Size = UDim2.new(0, 98, 0, 32)
+Button.ZIndex = 2
+Button.Font = Enum.Font.GothamMedium
+Button.Text = ""
+Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+Button.TextScaled = true
+Button.TextSize = 14.000
+Button.TextWrapped = true
+
+Shadow.Name = "Shadow"
+Shadow.Parent = Button
+Shadow.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+Shadow.BorderSizePixel = 0
+Shadow.Size = UDim2.new(1, 0, 1, 4)
+
+TextLabel_2.Parent = Button
+TextLabel_2.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.5, 0, 0.5, 0)
+TextLabel_2.Size = UDim2.new(1, -20, 1, -20)
+TextLabel_2.ZIndex = 2
+TextLabel_2.Font = Enum.Font.GothamMedium
+TextLabel_2.Text = "Copy TextBox"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
+
+TextBox.Parent = BaseComet
+TextBox.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(0.00403232081, 0, 0.268707484, 0)
+TextBox.Size = UDim2.new(0, 589, 0, 209)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.PlaceholderText = "scripts here"
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextSize = 14.000
+TextBox.TextWrapped = true
+TextBox.TextXAlignment = Enum.TextXAlignment.Left
+TextBox.TextYAlignment = Enum.TextYAlignment.Top
+
+UICorner_2.CornerRadius = UDim.new(0, 5)
+UICorner_2.Parent = TextBox
+
+play_arrow.Name = "play_arrow"
+play_arrow.Parent = BaseComet
+play_arrow.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+play_arrow.LayoutOrder = 6
+play_arrow.Position = UDim2.new(0.0120967738, 0, 0.13945578, 0)
+play_arrow.Size = UDim2.new(0, 32, 0, 29)
+play_arrow.ZIndex = 2
+play_arrow.Image = "rbxassetid://3926307971"
+play_arrow.ImageRectOffset = Vector2.new(764, 244)
+play_arrow.ImageRectSize = Vector2.new(36, 36)
+
+UICorner_3.Parent = play_arrow
+
+remove.Name = "remove"
+remove.Parent = BaseComet
+remove.BackgroundTransparency = 1.000
+remove.LayoutOrder = 6
+remove.Position = UDim2.new(0.913648665, 0, -7.4505806e-09, 0)
+remove.Size = UDim2.new(0, 25, 0, 25)
+remove.ZIndex = 2
+remove.Image = "rbxassetid://3926307971"
+remove.ImageRectOffset = Vector2.new(884, 284)
+remove.ImageRectSize = Vector2.new(36, 36)
+
+close.Name = "close"
+close.Parent = BaseComet
+close.BackgroundTransparency = 1.000
+close.LayoutOrder = 5
+close.Position = UDim2.new(0.957329214, 0, 0, 0)
+close.Size = UDim2.new(0, 25, 0, 25)
+close.ZIndex = 2
+close.Image = "rbxassetid://3926305904"
+close.ImageColor3 = Color3.fromRGB(255, 0, 0)
+close.ImageRectOffset = Vector2.new(284, 4)
+close.ImageRectSize = Vector2.new(24, 24)
+
+power.Name = "power"
+power.Parent = BaseComet
+power.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+power.LayoutOrder = 5
+power.Position = UDim2.new(0.0826612934, 0, 0.13945578, 0)
+power.Size = UDim2.new(0, 35, 0, 29)
+power.ZIndex = 2
+power.Image = "rbxassetid://3926305904"
+power.ImageRectOffset = Vector2.new(164, 324)
+power.ImageRectSize = Vector2.new(36, 36)
+
+UICorner_4.Parent = power
+
+TextLabel_3.Parent = BaseComet
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+TextLabel_3.BorderColor3 = Color3.fromRGB(116, 123, 255)
+TextLabel_3.Position = UDim2.new(0.397519648, 0, -0.0136054428, 0)
+TextLabel_3.Size = UDim2.new(0, 121, 0, 29)
+TextLabel_3.Font = Enum.Font.SourceSans
+TextLabel_3.Text = "Comet 3"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextWrapped = true
+
+UICorner_5.Parent = TextLabel_3
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(148, 0, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 51, 243))}
+UIGradient.Parent = TextLabel_3
+
+CometVersionLabel.Name = "CometVersionLabel"
+CometVersionLabel.Parent = BaseComet
+CometVersionLabel.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+CometVersionLabel.Position = UDim2.new(0.397519648, 0, 0.0850340128, 0)
+CometVersionLabel.Size = UDim2.new(0, 121, 0, 14)
+CometVersionLabel.Font = Enum.Font.SourceSans
+CometVersionLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+CometVersionLabel.TextScaled = true
+CometVersionLabel.TextSize = 14.000
+CometVersionLabel.TextWrapped = true
+
+UICorner_6.CornerRadius = UDim.new(0, 3)
+UICorner_6.Parent = CometVersionLabel
+
+CometIsInjected.Name = "CometIsInjected"
+CometIsInjected.Parent = BaseComet
+CometIsInjected.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+CometIsInjected.Position = UDim2.new(0.300040632, 0, 0.173469394, 0)
+CometIsInjected.Size = UDim2.new(0, 235, 0, 28)
+CometIsInjected.Font = Enum.Font.SourceSans
+CometIsInjected.TextColor3 = Color3.fromRGB(255, 255, 255)
+CometIsInjected.TextScaled = true
+CometIsInjected.TextSize = 14.000
+CometIsInjected.TextWrapped = true
+
+UICorner_7.CornerRadius = UDim.new(0, 3)
+UICorner_7.Parent = CometIsInjected
+
+CometPatchedFrame.Name = "CometPatchedFrame"
+CometPatchedFrame.Parent = CometInternal
+CometPatchedFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+CometPatchedFrame.Position = UDim2.new(0.273176759, 0, 0.346855909, 0)
+CometPatchedFrame.Size = UDim2.new(0, 327, 0, 151)
+CometPatchedFrame.Visible = false
+CometPatchedFrame.Active = true
+CometPatchedFrame.Draggable = true
+
+UICorner_8.Parent = CometPatchedFrame
+
+ImageLabel_2.Parent = CometPatchedFrame
+ImageLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_2.BackgroundTransparency = 1.000
+ImageLabel_2.Position = UDim2.new(-1.11758709e-08, 0, 0.172185436, 0)
+ImageLabel_2.Size = UDim2.new(0, 100, 0, 99)
+ImageLabel_2.Image = "http://www.roblox.com/asset/?id=13557846664"
+
+TextLabel_4.Parent = CometPatchedFrame
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_4.BorderSizePixel = 0
+TextLabel_4.Position = UDim2.new(0.304190725, 0, 0.331125826, 0)
+TextLabel_4.Size = UDim2.new(0, 224, 0, 50)
+TextLabel_4.Font = Enum.Font.SourceSans
+TextLabel_4.Text = "[Comet 3 executor]: is currently patched, you want to exit?"
+TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.TextScaled = true
+TextLabel_4.TextSize = 14.000
+TextLabel_4.TextWrapped = true
+
+PatchedVersion.Name = "PatchedVersion"
+PatchedVersion.Parent = CometPatchedFrame
+PatchedVersion.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+PatchedVersion.Position = UDim2.new(0.192660555, 0, 0.900662243, 0)
+PatchedVersion.Size = UDim2.new(0, 200, 0, 35)
+PatchedVersion.Font = Enum.Font.SourceSans
+PatchedVersion.TextColor3 = Color3.fromRGB(255, 255, 255)
+PatchedVersion.TextScaled = true
+PatchedVersion.TextSize = 14.000
+PatchedVersion.TextWrapped = true
+
+UICorner_9.Parent = PatchedVersion
+
+trending_flat.Name = "trending_flat"
+trending_flat.Parent = CometPatchedFrame
+trending_flat.BackgroundTransparency = 1.000
+trending_flat.LayoutOrder = 13
+trending_flat.Position = UDim2.new(0.591743112, 0, 0.658940434, 0)
+trending_flat.Size = UDim2.new(0, 34, 0, 28)
+trending_flat.ZIndex = 2
+trending_flat.Image = "rbxassetid://3926305904"
+trending_flat.ImageColor3 = Color3.fromRGB(255, 0, 0)
+trending_flat.ImageRectOffset = Vector2.new(84, 84)
+trending_flat.ImageRectSize = Vector2.new(36, 36)
+
+CometMinimized.Name = "CometMinimized"
+CometMinimized.Parent = CometInternal
+CometMinimized.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+CometMinimized.BorderSizePixel = 0
+CometMinimized.Position = UDim2.new(0.312731773, 0, 0.69168359, 0)
+CometMinimized.Size = UDim2.new(0, 66, 0, 63)
+CometMinimized.Visible = false
+CometMinimized.Image = "http://www.roblox.com/asset/?id=13557846664"
+CometMinimized.Active = true
+CometMinimized.Draggable = true
+CometMinimized.MouseButton1Click:Connect(function()
+	CometMinimized.Visible = false
+	BaseComet.Visible = true
+end)
+
+UICorner_10.Parent = CometMinimized
+
+-- Scripts:
+
+local function LTJCV_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	local b = script.Parent
+	local ed = script.Parent.Parent.EditFrame
+	
+	local isVisible = false
+	
+	b.MouseButton1Click:Connect(function()
+		if isVisible then
+			ed.Visible = false
+			isVisible = false
+		else
+			ed.Visible = true
+			isVisible = true
+		end
+	end)
+	
+end
+coroutine.wrap(LTJCV_fake_script)()
+local function CZUXV_fake_script() -- Button.LocalScript 
+	local script = Instance.new('LocalScript', Button)
+
+	local button = script.Parent
+	
+	button.MouseButton1Click:Connect(function()
+		local textBox = script.Parent.Parent.Parent.TextBox
+		local text = textBox.Text
+		setclipboard(text)
+	end)
+	
+end
+coroutine.wrap(CZUXV_fake_script)()
+local function QBCT_fake_script() -- remove.LocalScript 
+	local script = Instance.new('LocalScript', remove)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Visible = false
+		script.Parent.Parent.Parent.CometMinimized.Visible = true
+	end)
+end
+coroutine.wrap(QBCT_fake_script)()
+local function YJCQ_fake_script() -- close.LocalScript 
+	local script = Instance.new('LocalScript', close)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.Enabled = false
+	end)
+end
+coroutine.wrap(YJCQ_fake_script)()
+local function MLXL_fake_script() -- trending_flat.LocalScript 
+	local script = Instance.new('LocalScript', trending_flat)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.Enabled = false
+	end)
+end
+coroutine.wrap(MLXL_fake_script)()
